@@ -8,7 +8,8 @@ include "Conexao.php";
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <style>
             .pointer{
                 cursor: pointer;
@@ -65,6 +66,7 @@ include "Conexao.php";
         <link rel="stylesheet" href="css/sweetalert.min.css" />
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
         <script src="js/sweetalert.min.js"></script>
         <script>
             function salvarLinha(prox) {
@@ -167,6 +169,12 @@ include "Conexao.php";
                 $("#tabela_editada tbody").append(html);
                 qtdLinhas++;
             });
+
+            $(document).ready(function() {
+                $('#tabela_editada').DataTable({
+                    columnDefs: [{ "targets": [0], "searchable": false, "orderable": false, "visible": true }]
+                });
+            } );
 
         </script>
     </body>
